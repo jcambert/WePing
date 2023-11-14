@@ -111,12 +111,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_files", "_files", "{06650C
 		.gitignore = .gitignore
 		common.props = common.props
 		Directory.Build.props = Directory.Build.props
+		README.md = README.md
 		weping.yml = weping.yml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "We.Ping.Request", "modules\We.Ping.Request\We.Ping.Request.csproj", "{B8F1D507-A7CC-4576-BFB4-92925DCE79E6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "We.Ping.Crypto", "modules\We.Ping.Crypto\We.Ping.Crypto.csproj", "{F22E8C56-EF8E-4FCA-883E-240E303DAE4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "We.Ping.PointCalculator", "modules\We.Ping.PointCalculator\We.Ping.PointCalculator.csproj", "{C2063ACC-2216-4D11-ADE5-009FB5D93CFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -308,6 +311,10 @@ Global
 		{F22E8C56-EF8E-4FCA-883E-240E303DAE4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F22E8C56-EF8E-4FCA-883E-240E303DAE4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F22E8C56-EF8E-4FCA-883E-240E303DAE4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2063ACC-2216-4D11-ADE5-009FB5D93CFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2063ACC-2216-4D11-ADE5-009FB5D93CFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2063ACC-2216-4D11-ADE5-009FB5D93CFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2063ACC-2216-4D11-ADE5-009FB5D93CFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -363,6 +370,7 @@ Global
 		{16F0BF4E-7D73-4278-8D9A-7CDE37105C6B} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 		{B8F1D507-A7CC-4576-BFB4-92925DCE79E6} = {285E98F3-20E4-49B3-B3B7-66B1F6B1E961}
 		{F22E8C56-EF8E-4FCA-883E-240E303DAE4A} = {285E98F3-20E4-49B3-B3B7-66B1F6B1E961}
+		{C2063ACC-2216-4D11-ADE5-009FB5D93CFF} = {285E98F3-20E4-49B3-B3B7-66B1F6B1E961}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28315BFD-90E7-4E14-A2EA-F3D23AF4126F}
