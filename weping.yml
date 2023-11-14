@@ -1,0 +1,31 @@
+﻿version: '3.8'
+services:
+  cache:
+    image: bitnami/redis:latest
+    restart: always
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    ports:
+      - '6380:6379'
+    volumes:
+      - weping_cache_data:/bitnami/redis/data
+      
+  data:
+    image:  bitnami/postgresql:latest
+    restart: always
+    environment:
+      - POSTGRESQL_DATABASE=weping
+      - POSTGRESQL_USERNAME=weping_root
+      - POSTGRESQL_PASSWORD=zy4fVNVu
+
+    ports:
+      - '5434:5432'
+    volumes:
+     - 'weping_db_data:/bitnami/postgresql'
+    
+volumes:
+  weping_cache_data:
+    driver: local
+  weping_db_data:
+    driver: local

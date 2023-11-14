@@ -1,0 +1,49 @@
+﻿@page "/recherche_epreuves/"
+@page "/recherche_epreuves/{organisme}/{typeEpreuve}"
+@inherits SmartPingComponentBase<IBrowseEpreuveOrganismeQuery>
+
+<h3>Recherche Epreuve Organisme</h3>
+
+
+<Field>
+    <FieldLabel>Organisme</FieldLabel>
+    <TextEdit Placeholder="Organisme" @bind-Text="Query.IdOrganisme" Disabled="IsLoading"></TextEdit>
+</Field>
+<Field>
+    <FieldLabel>Epreuve</FieldLabel>
+    <Select TValue="string" @bind-SelectedValue="@Query.TypeEpreuve">
+        @foreach (var item in TypeEpreuveExtensions.TypeEpreuves)
+        {
+            <SelectItem Value="item.Value">@item.Epreuve</SelectItem>
+        }
+    </Select>
+</Field>
+<Button Class="mb-4" Color="Color.Success" Clicked="async( e)=>await SendRequest()" Loading="@IsLoading">
+    <LoadingTemplate>
+        Recherche en cours..
+    </LoadingTemplate>
+    <ChildContent>
+        Rechercher
+    </ChildContent>
+</Button>
+<br />
+
+<Field>
+    <TextEdit @bind-Text="ExternalApiUrl" Disabled></TextEdit>
+     <Button Class="mb-3" Color="Color.Link" Clicked="NavigateToSmartPingApi" Disabled="@string.IsNullOrEmpty(ExternalApiUrl)">SmartPing Api</Button>
+ </Field>
+
+ <ul>
+     @foreach (var epreuve in Epreuves.OrderBy(x => x.Organisme))
+    {
+        <li>
+            @epreuve.Id <br />
+            @epreuve.Organisme <br />
+            @epreuve.Libelle <br />
+            @epreuve.Type <br />
+
+
+        </li>
+
+    }
+</ul>

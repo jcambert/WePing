@@ -1,0 +1,52 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>11</LangVersion>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <Features>strict</Features>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/jc.ambert/WePing</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/jc.ambert/WePing</RepositoryUrl>
+    <PackageTags>Ping Pocket Alt</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <Authors>Jc Ambert</Authors>
+    <Copyright>Copyright 2023 Jc Ambert</Copyright>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DotNetVersion>7.0.0</DotNetVersion>
+    <MediatorName>othamar</MediatorName>
+    <MediatorOthamarLibraryName>Mediator.SourceGenerator</MediatorOthamarLibraryName>
+    <MediatorOthamarVersion>2.1.7</MediatorOthamarVersion>
+    <MediatorOthamarAbstractionLibraryName>Mediator.Abstractions</MediatorOthamarAbstractionLibraryName>
+    <MediatorOthamarAbstractionVersion>2.1.7</MediatorOthamarAbstractionVersion>
+    <MediatorBogardLibraryName>MediatR</MediatorBogardLibraryName>
+    <MediatorBogardVersion>12.0.1</MediatorBogardVersion>
+    <MediatorBogardAbstractionLibraryName>MediatR.Contracts</MediatorBogardAbstractionLibraryName>
+    <MediatorBogardAbstractionVersion>2.0.1</MediatorBogardAbstractionVersion>
+    <UseFluentValidation>true</UseFluentValidation>
+  </PropertyGroup>
+
+   <PropertyGroup Condition="'$(Platform)'=='AnyCPU' and '$(MediatorName)'=='bogard'">
+        <DefineConstants>$(DefineConstants);MEDIATR</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Platform)'=='AnyCPU' and '$(MediatorName)'=='othamar'">
+        <DefineConstants>$(DefineConstants);MEDIATOR</DefineConstants>
+    </PropertyGroup>
+  <PropertyGroup Condition="'$(Platform)'=='AnyCPU' and '$(UseFluentValidation)'=='true'">
+    <DefineConstants>$(DefineConstants);FLUENTVALIDATION</DefineConstants>
+  </PropertyGroup>
+  <!--<ItemGroup>
+    <PackageReference Include="CSharpier.MsBuild" Version="0.16.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>-->
+</Project>

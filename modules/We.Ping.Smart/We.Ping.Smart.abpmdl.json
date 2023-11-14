@@ -1,0 +1,111 @@
+{
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {},
+      "host": {}
+    }
+  },
+  "packages": {
+    "We.Ping.Smart.Domain.Shared": {
+      "path": "src/We.Ping.Smart.Domain.Shared/We.Ping.Smart.Domain.Shared.abppkg.json",
+      "folder": "src"
+    },
+    "We.Ping.Smart.Domain": {
+      "path": "src/We.Ping.Smart.Domain/We.Ping.Smart.Domain.abppkg.json",
+      "folder": "src"
+    },
+    "We.Ping.Smart.Application.Contracts": {
+      "path": "src/We.Ping.Smart.Application.Contracts/We.Ping.Smart.Application.Contracts.abppkg.json",
+      "folder": "src"
+    },
+    "We.Ping.Smart.Application": {
+      "path": "src/We.Ping.Smart.Application/We.Ping.Smart.Application.abppkg.json",
+      "folder": "src"
+    },
+    "We.Ping.Smart.EntityFrameworkCore": {
+      "path": "src/We.Ping.Smart.EntityFrameworkCore/We.Ping.Smart.EntityFrameworkCore.abppkg.json",
+      "folder": "src"
+    },
+    "We.Ping.Smart.MongoDB": {
+      "path": "src/We.Ping.Smart.MongoDB/We.Ping.Smart.MongoDB.abppkg.json",
+      "folder": "src"
+    },
+    "We.Ping.Smart.HttpApi": {
+      "path": "src/We.Ping.Smart.HttpApi/We.Ping.Smart.HttpApi.abppkg.json",
+      "folder": "src"
+    },
+    "We.Ping.Smart.HttpApi.Client": {
+      "path": "src/We.Ping.Smart.HttpApi.Client/We.Ping.Smart.HttpApi.Client.abppkg.json",
+      "folder": "src"
+    },
+    "We.Ping.Smart.TestBase": {
+      "path": "test/We.Ping.Smart.TestBase/We.Ping.Smart.TestBase.abppkg.json",
+      "folder": "test"
+    },
+    "We.Ping.Smart.EntityFrameworkCore.Tests": {
+      "path": "test/We.Ping.Smart.EntityFrameworkCore.Tests/We.Ping.Smart.EntityFrameworkCore.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "We.Ping.Smart.MongoDB.Tests": {
+      "path": "test/We.Ping.Smart.MongoDB.Tests/We.Ping.Smart.MongoDB.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "We.Ping.Smart.Domain.Tests": {
+      "path": "test/We.Ping.Smart.Domain.Tests/We.Ping.Smart.Domain.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "We.Ping.Smart.Application.Tests": {
+      "path": "test/We.Ping.Smart.Application.Tests/We.Ping.Smart.Application.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "We.Ping.Smart.HttpApi.Host": {
+      "path": "host/We.Ping.Smart.HttpApi.Host/We.Ping.Smart.HttpApi.Host.abppkg.json",
+      "folder": "host"
+    },
+    "We.Ping.Smart.Web": {
+      "path": "src/We.Ping.Smart.Web/We.Ping.Smart.Web.abppkg.json",
+      "folder": "src"
+    },
+    "We.Ping.Smart.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/We.Ping.Smart.HttpApi.Client.ConsoleTestApp/We.Ping.Smart.HttpApi.Client.ConsoleTestApp.abppkg.json",
+      "folder": "test"
+    },
+    "We.Ping.Smart.Web.Host": {
+      "path": "host/We.Ping.Smart.Web.Host/We.Ping.Smart.Web.Host.abppkg.json",
+      "folder": "host"
+    },
+    "We.Ping.Smart.AuthServer": {
+      "path": "host/We.Ping.Smart.AuthServer/We.Ping.Smart.AuthServer.abppkg.json",
+      "folder": "host"
+    },
+    "We.Ping.Smart.Host.Shared": {
+      "path": "host/We.Ping.Smart.Host.Shared/We.Ping.Smart.Host.Shared.abppkg.json",
+      "folder": "host"
+    },
+    "We.Ping.Smart.Web.Unified": {
+      "path": "host/We.Ping.Smart.Web.Unified/We.Ping.Smart.Web.Unified.abppkg.json",
+      "folder": "host"
+    },
+    "We.Ping.Smart.Blazor": {
+      "path": "src/We.Ping.Smart.Blazor/We.Ping.Smart.Blazor.abppkg.json",
+      "folder": "src"
+    },
+    "We.Ping.Smart.Blazor.Host": {
+      "path": "host/We.Ping.Smart.Blazor.Host/We.Ping.Smart.Blazor.Host.abppkg.json",
+      "folder": "host"
+    },
+    "We.Ping.Smart.Blazor.Server": {
+      "path": "src/We.Ping.Smart.Blazor.Server/We.Ping.Smart.Blazor.Server.abppkg.json",
+      "folder": "src"
+    },
+    "We.Ping.Smart.Blazor.WebAssembly": {
+      "path": "src/We.Ping.Smart.Blazor.WebAssembly/We.Ping.Smart.Blazor.WebAssembly.abppkg.json",
+      "folder": "src"
+    },
+    "We.Ping.Smart.Blazor.Server.Host": {
+      "path": "host/We.Ping.Smart.Blazor.Server.Host/We.Ping.Smart.Blazor.Server.Host.abppkg.json",
+      "folder": "host"
+    }
+  }
+}

@@ -1,0 +1,45 @@
+﻿@page "/recherche_joueurs_cla"
+@page "/recherche_joueurs_cla/{numero}"
+@using Microsoft.Extensions.Localization
+@using global::We.Ping.Smart.Localization
+@inherits SmartPingComponentBase<IBrowseJoueurClassementQuery>
+
+
+
+<p>@L["JoueursClassementSearchTitle"]</p>
+<Field>
+    <FieldLabel>Numero du club</FieldLabel>
+    <TextEdit Placeholder="Numero" @bind-Text="Query.Club" Disabled="IsLoading"></TextEdit>
+</Field>
+
+<Field>
+    <FieldLabel>Nom du joueur</FieldLabel>
+    <TextEdit Placeholder="Nom" @bind-Text="Query.Nom" Disabled="IsLoading"></TextEdit>
+</Field>
+<Field>
+    <FieldLabel>Prenom du joueur</FieldLabel>
+    <TextEdit Placeholder="Prenom" @bind-Text="Query.Prenom" Disabled="IsLoading"></TextEdit>
+</Field>
+
+<Button Class="mb-4" Color="Color.Success" Clicked="async( e)=>await SendRequest()" Loading="@IsLoading">
+    <LoadingTemplate>Recherche en cours</LoadingTemplate>
+    <ChildContent>Rechercher</ChildContent>
+</Button>
+<br />
+<Field>
+    <TextEdit @bind-Text="ExternalApiUrl" Disabled></TextEdit>
+     <Button Class="mb-3" Color="Color.Link" Clicked="NavigateToSmartPingApi" Disabled="@string.IsNullOrEmpty(ExternalApiUrl)">SmartPing Api</Button>
+ </Field>
+
+ <ul>
+
+ @foreach(var joueur in Joueurs.OrderBy(x => x.Nom).ThenBy(x => x.Prenom))
+{
+    <li>
+        @joueur.Club<br/>
+        @joueur.Nom @joueur.Prenom<br/>
+        Licence: @joueur.Licence<br/>
+        Clt: @joueur.Classement
+    </li>
+}
+ </ul>

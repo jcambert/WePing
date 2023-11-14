@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "We.Ping.Smart": {
+      "path": "We.Ping.Smart.abpmdl.json"
+    }
+  }
+}

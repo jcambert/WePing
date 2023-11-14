@@ -1,0 +1,23 @@
+﻿@page "/detail_clubs"
+@page "/detail_clubs/{numero}"
+@using Microsoft.Extensions.Localization
+@using global::We.Ping.Smart.Localization
+@inherits SmartPingComponentBase<IGetDetailClubQuery>
+
+@{
+}
+<h1>Smart</h1>
+<p>@L["SamplePageMessage"]</p>
+
+<Field>
+    <FieldLabel>Numero</FieldLabel>
+    <TextEdit Placeholder="Numero" @bind-Text="Query.Numero"></TextEdit>
+</Field>
+<Button Class="mb-4" Color="Color.Success" Clicked="async( e)=>await SendRequest()" Loading="@IsLoading">SEND a request</Button>
+<br />
+@if (Detail is not null)
+{
+    <ClubDetailCard ClubDetail="Detail"></ClubDetailCard>
+    
+}
+    

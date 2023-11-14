@@ -1,0 +1,33 @@
+﻿@page "/recherche_parties"
+@page "/recherche_parties/{numero}"
+@using Microsoft.Extensions.Localization
+
+@using global::We.Ping.Smart.Localization
+@inherits SmartPingComponentBase<IBrowseJoueurPartieQuery>
+
+<h3><p>@L["ClubSearchTitle"]</p></h3>
+
+<Field>
+    <FieldLabel>Licence</FieldLabel>
+    <TextEdit Placeholder="Licence" @bind-Text="Query.Licence" Disabled="IsLoading"></TextEdit>
+</Field>
+
+
+<Button Class="mb-4" Color="Color.Success" Clicked="async( e)=>await SendRequest()" Loading="@IsLoading">
+    <LoadingTemplate>Recherche en cours</LoadingTemplate>
+    <ChildContent>Rechercher</ChildContent>
+</Button>
+<br />
+
+<SmartApiUrlButton ExternalApiUrl="@ExternalApiUrl">Parties Joueur</SmartApiUrlButton>
+<ul>
+    @foreach (var partie in Parties.OrderBy(x=>x.Date).ThenBy(x=>x.NomAdversaire))
+    {
+        <li>
+            @partie.NomAdversaire <br />
+            @partie.ClassementAdversaire<br />
+            @partie.Epreuve<br />
+            @partie.Victoire<br />
+        </li>
+    }
+</ul>

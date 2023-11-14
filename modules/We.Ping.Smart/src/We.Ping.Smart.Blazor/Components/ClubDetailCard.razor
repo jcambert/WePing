@@ -1,0 +1,13 @@
+﻿@using We.Ping.Smart.Entities.Clubs
+@if(ClubDetail is not null)
+{
+<Card>
+    @ClubDetail.Numero
+</Card>
+    
+}
+
+@code {
+    [Parameter] public ClubDetailDto? ClubDetail { get; set; }
+    
+}

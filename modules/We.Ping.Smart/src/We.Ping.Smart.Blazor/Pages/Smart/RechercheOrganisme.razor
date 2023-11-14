@@ -1,0 +1,35 @@
+﻿@page "/recherche_organismes/"
+@page "/recherche_organismes/{type}"
+@inherits SmartPingComponentBase<IBrowseOrganismeQuery>
+
+<Field>
+    <FieldLabel>Type Organisme (F-Z-L-D)</FieldLabel>
+    <TextEdit Placeholder="Type" @bind-Text="Query.Type" Disabled="IsLoading"></TextEdit>
+</Field>
+<Button Class="mb-4" Color="Color.Success" Clicked="async( e)=>await SendRequest()" Loading="@IsLoading">
+    <LoadingTemplate>
+        Recherche en cours..
+    </LoadingTemplate>
+    <ChildContent>
+        Rechercher
+    </ChildContent>
+</Button>
+<br />
+
+<Field>
+    <TextEdit @bind-Text="ExternalApiUrl" Disabled></TextEdit>
+     <Button Class="mb-3" Color="Color.Link" Clicked="NavigateToSmartPingApi" Disabled="@string.IsNullOrEmpty(ExternalApiUrl)">SmartPing Api</Button>
+ </Field>
+
+ <ul>
+     @foreach (var org in Organismes.OrderBy(x => x.Libelle))
+    {
+        <li>
+            @org.Id
+            @org.Code<br/>
+            @org.Libelle<br/>
+
+        </li>
+
+    }
+</ul>

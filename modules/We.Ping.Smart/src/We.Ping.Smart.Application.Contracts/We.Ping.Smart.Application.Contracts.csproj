@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFrameworks>net7.0</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <RootNamespace>We.Ping.Smart</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.8.0" />
+    <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" Version="7.4.0" />
+    <PackageReference Include="Volo.Abp.Authorization" Version="7.4.0" />
+    <PackageReference Include="We.Mediatr" Version="1.0.5" />
+    <PackageReference Include="We.Results" Version="1.0.5" />
+    <ProjectReference Include="..\We.Ping.Smart.Domain.Shared\We.Ping.Smart.Domain.Shared.csproj" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(MediatorName)'=='bogard'">
+    <PackageReference Include="$(MediatorBogardAbstractionLibraryName)" Version="$(MediatorBogardAbstractionVersion)" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(MediatorName)'=='othamar'">
+    <PackageReference Include="$(MediatorOthamarAbstractionLibraryName)" Version="$(MediatorOthamarAbstractionVersion)" />
+  </ItemGroup>
+</Project>

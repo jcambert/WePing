@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "We.Ping.Girpe": {
+      "path": "We.Ping.Girpe.abpmdl.json"
+    }
+  }
+}

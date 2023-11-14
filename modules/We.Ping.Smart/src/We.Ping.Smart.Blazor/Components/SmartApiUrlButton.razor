@@ -1,0 +1,43 @@
+﻿@using Microsoft.JSInterop;
+@using Volo.Abp.AspNetCore.Components.Notifications;
+<Field>
+    <TextEdit @bind-Text="ExternalApiUrl" Disabled></TextEdit>
+     <Button Class="mb-3" Color="Color.Link" Clicked="NavigateToSmartPingApi" Disabled="@string.IsNullOrEmpty(ExternalApiUrl)">
+         @if(ChildContent is not null)
+        {
+        @ChildContent
+        }
+        else
+        {
+         @("SmartPing Api")
+            
+        }
+
+         </Button>
+ </Field>
+
+ @code {
+    [Parameter]public string ExternalApiUrl { get; set; } = string.Empty;
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    [Inject] protected IJSRuntime jsRuntime { get; set; }
+    [Inject] protected IUiNotificationService Notify{ get; set; }
+    
+    public async Task NavigateToSmartPingApi(MouseEventArgs e)
+    {
+        try
+        {
+
+            await jsRuntime.InvokeAsync<object>("open", ExternalApiUrl, "_blank");
+        }
+        catch (Exception ex)
+        {
+            await Notify.Error(ex.Message);
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+    }
+}

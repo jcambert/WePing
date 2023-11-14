@@ -1,0 +1,60 @@
+﻿@using We.Ping.Smart.Entities.Clubs
+@using Blazorise
+
+@inject NavigationManager Navigation
+@if (Club is not null)
+{
+    <Card Class="@Class">
+        <CardBody>
+            <CardTitle>@Club.Numero - @Club.Nom <Badge Color="Color.Primary">@Club.NombreEquipe</Badge> </CardTitle>
+            @ChildContent
+            @if (Club.Details is null)
+            {
+                <Button Color="Color.Secondary" Margin="Margin.Is2.FromTop" Clicked="async( e)=>await LoadDetail(Club)" Loading="@Club.IsLoadingDetail" Visibility="@GetVisibility">
+                    <LoadingTemplate>
+                    Chargement des détails de @Club.Nom
+                </LoadingTemplate>
+                <ChildContent>
+                    View Detail <Icon Name="IconName.ArrowRight" />
+                </ChildContent>
+                </Button>
+            }else
+                {
+                
+                <Button Color="Color.Primary" Margin="Margin.Is2.FromTop" Clicked="async( e)=>await ViewDetail(Club.Numero)" Visibility="@GetVisibility_">
+                Navigate Detail <Icon Name="IconName.ArrowRight" />
+            </Button>
+                }
+            <Button Color="Color.Secondary" Margin="Margin.Is2.FromTop.Is2.FromStart" Clicked="async( e)=>await ViewEquipes(Club.Numero)" >
+                Voir les equipes de @Club.Nom
+            </Button>
+        </CardBody>
+
+    </Card>
+}
+@code {
+    [Parameter] public ClubPourDepartementDto? Club { get; set; }
+    [Parameter] public string Class { get; set; } = string.Empty;
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public EventCallback<ClubPourDepartementDto> OnWantLoadDetail { get; set; }
+    public Task ViewDetail(string numero)
+    {
+        Navigation.NavigateTo($"/detail_clubs/{numero}");
+        return Task.CompletedTask;
+    }
+
+    public  Task ViewEquipes(string numero)
+    {
+       
+        Navigation.NavigateTo($"/recherche_equipes/{numero}");
+        return Task.CompletedTask;
+    }
+    public async Task LoadDetail(ClubPourDepartementDto club)
+    {
+
+        if (club is not null)
+            await OnWantLoadDetail.InvokeAsync(club);
+    }
+    private Visibility GetVisibility => Club?.Details is null ? Visibility.Visible : Visibility.Invisible;
+    private Visibility GetVisibility_ => Club?.Details is not null ? Visibility.Visible : Visibility.Invisible;
+}

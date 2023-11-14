@@ -1,0 +1,41 @@
+﻿@page "/recherche_clubs"
+@using Microsoft.Extensions.Localization
+@using We.Ping.Queries;
+@using global::We.Ping.Smart.Localization
+@inherits SmartPingComponentBase<IBrowseClubPourDepartementQuery>
+
+
+
+<p>@L["ClubSearchTitle"]</p>
+<Field>
+    <FieldLabel>Code Département</FieldLabel>
+    <TextEdit Placeholder="Département" @bind-Text="Query.Departement" Disabled="IsLoading"></TextEdit>
+</Field>
+<Field>
+    <FieldLabel>Code Postal</FieldLabel>
+    <TextEdit Placeholder="Code Postal" @bind-Text="Query.CodePostal" Disabled="IsLoading"></TextEdit>
+</Field>
+<Field>
+    <FieldLabel>Ville</FieldLabel>
+    <TextEdit Placeholder="Ville" @bind-Text="Query.Ville" Disabled="IsLoading"></TextEdit>
+</Field>
+<Field>
+    <FieldLabel>Numero</FieldLabel>
+    <TextEdit Placeholder="Numero" @bind-Text="Query.Numero" Disabled="IsLoading"></TextEdit>
+</Field>
+<Button Class="mb-4" Color="Color.Success" Clicked="async( e)=>await SendRequest()" Loading="@IsLoading">
+    <LoadingTemplate>Recherche en cours</LoadingTemplate>
+    <ChildContent>Rechercher</ChildContent>
+</Button>
+<br />
+<Field>
+    <TextEdit @bind-Text="ExternalApiUrl" Disabled></TextEdit>
+    <Button Class="mb-3" Color="Color.Link" Clicked="NavigateToSmartPingApi" Disabled="@string.IsNullOrEmpty(ExternalApiUrl)">SmartPing Api</Button>
+</Field>
+@foreach (var club in Clubs)
+{
+    <ClubCard Class="mb-3" Club="club" OnWantLoadDetail="@LoadDetail">
+        <ClubDetailCard ClubDetail="club.Details"></ClubDetailCard>
+    </ClubCard>
+
+}

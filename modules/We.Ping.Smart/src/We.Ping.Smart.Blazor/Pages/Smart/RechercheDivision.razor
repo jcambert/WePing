@@ -1,0 +1,50 @@
+﻿@page "/recherche_divisions"
+@page "/recherche_divisions/{organisme}/{epreuve}/{typeEpreuve}"
+@inherits SmartPingComponentBase<IBrowseDivisionQuery>
+
+<h3>RechercheDivision</h3>
+
+<Field>
+    <FieldLabel>Organisme</FieldLabel>
+    <TextEdit Placeholder="Organisme" @bind-Text="Query.IdOrganisme" Disabled="IsLoading"></TextEdit>
+</Field>
+<Field>
+    <FieldLabel>Epreuve</FieldLabel>
+    <TextEdit Placeholder="Epreuve" @bind-Text="Query.IdEpreuve" Disabled="IsLoading"></TextEdit>
+</Field>
+<Field>
+    <FieldLabel>Type Epreuve</FieldLabel>
+    <Select TValue="string" @bind-SelectedValue="@Query.TypeEpreuve">
+        @foreach (var item in TypeEpreuveExtensions.TypeEpreuves)
+        {
+            <SelectItem Value="item.Value">@item.Epreuve</SelectItem>
+        }
+    </Select>
+</Field>
+<Button Class="mb-4" Color="Color.Success" Clicked="async( e)=>await SendRequest()" Loading="@IsLoading">
+    <LoadingTemplate>
+        Recherche en cours..
+    </LoadingTemplate>
+    <ChildContent>
+        Rechercher
+    </ChildContent>
+</Button>
+<br />
+
+<Field>
+    <TextEdit @bind-Text="ExternalApiUrl" Disabled></TextEdit>
+     <Button Class="mb-3" Color="Color.Link" Clicked="NavigateToSmartPingApi" Disabled="@string.IsNullOrEmpty(ExternalApiUrl)">SmartPing Api</Button>
+ </Field>
+
+ <ul>
+     @foreach (var division in Divisions.OrderBy(x => x.Libelle))
+    {
+        <li>
+            @division.Id <br />
+            @division.Libelle <br />
+
+
+        </li>
+
+    }
+</ul>

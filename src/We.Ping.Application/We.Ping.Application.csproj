@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <RootNamespace>We.Ping</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\We.Ping.Domain\We.Ping.Domain.csproj" />
+    <ProjectReference Include="..\We.Ping.Application.Contracts\We.Ping.Application.Contracts.csproj" />
+  <ProjectReference Include="..\..\modules\We.Ping.Smart\src\We.Ping.Smart.Application\We.Ping.Smart.Application.csproj" /><ProjectReference Include="..\..\modules\We.Ping.Girpe\src\We.Ping.Girpe.Application\We.Ping.Girpe.Application.csproj" /></ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Account.Application" Version="7.4.0" />
+    <PackageReference Include="Volo.Abp.Identity.Application" Version="7.4.0" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="7.4.0" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Application" Version="7.4.0" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Application" Version="7.4.0" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Application" Version="7.4.0" />
+  </ItemGroup>
+
+</Project>
